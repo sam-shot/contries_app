@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:contries_app/models/countries_model.dart';
+import 'package:contries_app/screens/country_detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../models/api_service.dart';
@@ -13,7 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<CountriesModel>? countries;
+  TextEditingController controller = TextEditingController();
+  List<CountriesModel>? countries = [];
   bool loaded = false;
 
   @override
@@ -34,7 +36,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    countries?.sort(((a, b) => a.name.common.compareTo(b.name.common)));
+    countries?.sort(((a, b) => a.name!.common!.compareTo(b.name!.common!)));
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -58,6 +60,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               TextField(
+                  controller: controller,
+                  onChanged: onSearch,
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.grey[200],
@@ -130,35 +134,77 @@ class _HomePageState extends State<HomePage> {
                 child: Visibility(
                   visible: loaded,
                   replacement: Center(child: CircularProgressIndicator()),
-                  child: ListView.builder(
-                    itemCount: countries?.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        child: SizedBox(
-                          height: 70,
-                          child: ListTile(
-                            title: Text(
-                              countries![index].name.common,
-                            ),
-                            subtitle: Text(
-                              countries![index].capital,
-                            ),
-                            leading: SizedBox(
-                              height: 40,
-                              width: 40,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.network(
-                                  countries![index].flags.png,
-                                  fit: BoxFit.cover,
+                  child: _searchCountries.isNotEmpty
+                      ? ListView.builder(
+                          itemCount: _searchCountries.length,
+                          itemBuilder: (context, index) {
+                            final country = _searchCountries[index];
+                            return SizedBox(
+                              height: 70,
+                              child: ListTile(
+                                title: Text(
+                                  country.name!.common!,
                                 ),
+                                subtitle: Text(
+                                  "${country.capital}",
+                                ),
+                                leading: SizedBox(
+                                  height: 40,
+                                  width: 40,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.network(
+                                      "${country.flags!.png}",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          CountryDetails(
+                                            country: country,
+                                          )));
+                                },
                               ),
-                            ),
-                          ),
+                            );
+                          },
+                        )
+                      : ListView.builder(
+                          itemCount: countries?.length,
+                          itemBuilder: (context, index) {
+                            final country = countries![index];
+                            return SizedBox(
+                              height: 70,
+                              child: ListTile(
+                                title: Text(
+                                  country.name!.common!,
+                                ),
+                                subtitle: Text(
+                                  "${country.capital}",
+                                ),
+                                leading: SizedBox(
+                                  height: 40,
+                                  width: 40,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.network(
+                                      "${country.flags!.png}",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          CountryDetails(
+                                            country: country,
+                                          )));
+                                },
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               )
             ],
@@ -167,4 +213,20 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  onSearch(String search) async {
+    _searchCountries.clear();
+    if (search.isEmpty) {
+      setState(() {});
+      return;
+    }
+
+    countries!.forEach((element) {
+      if (element.name!.common!.toLowerCase().contains(search.toLowerCase()))
+        _searchCountries.add(element);
+    });
+    setState(() {});
+  }
+
+  List<CountriesModel> _searchCountries = [];
 }
