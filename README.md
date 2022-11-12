@@ -74,7 +74,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  flutter run pub get
+  flutter pub get
 ```
 
 Run the App
