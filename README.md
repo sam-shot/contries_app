@@ -22,9 +22,9 @@ An Interactive and Responsive App which displays a list of all countries and sho
 
 ## Libraries I used
  
- - [http](https://pub.dev/packages/url_launcher)
+ - [http](https://pub.dev/packages/http)
     : I used this package to handle network requests.
-- [carousel_slider](https://pub.dev/packages/easy_localization)
+- [carousel_slider](https://pub.dev/packages/carousel_slider)
     : I used this package to implement Carousel in the country details screen to show flag and coat of arms.
 ## Code Base 
 
