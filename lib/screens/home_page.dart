@@ -4,6 +4,8 @@ import 'package:contries_app/models/countries_model.dart';
 import 'package:contries_app/screens/country_detail_page.dart';
 import 'package:flutter/material.dart';
 
+import '../components/filter_modal_sheet.dart';
+import '../components/language_modal_sheet.dart';
 import '../models/api_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -89,34 +91,8 @@ class _HomePageState extends State<HomePage> {
                           return Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 24, vertical: 24),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Languages",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20),
-                                    ),
-                                    Icon(Icons.cancel),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Languages"),
-                                    GestureDetector(
-                                        onTap: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Icon(Icons.cancel)),
-                                  ],
-                                ),
-                              ],
+                            child: SingleChildScrollView(
+                              child: LanguageModalSheet(),
                             ),
                           );
                         },
@@ -140,6 +116,25 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        )),
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 24),
+                            child: SingleChildScrollView(
+                              child: FilterModalSheet(),
+                            ),
+                          );
+                        },
+                      );
+                    },
                     child: Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
