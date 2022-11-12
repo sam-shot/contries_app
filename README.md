@@ -1,15 +1,14 @@
 
-# My Resume App
+# Country App
 
-An Interactive Mobile version of my Resume.
+An Interactive and Responsive App which displays a list of all countries and show details of each of the countries.
 
 
 ## Features
 
-- Dark/Light mode toggle with System theme detection Integration
+- Follows System Theme (i.e Dark/Light Theme)
 - Responsive
-- Multilingual Support with Language auto detection
-- Browser Support to Open my Social Links
+- Give Details of All countries
 
 
 
@@ -22,26 +21,26 @@ An Interactive Mobile version of my Resume.
 
 
 ## Libraries I used
-
  
- - [url_launcher](https://pub.dev/packages/url_launcher)
-    : I used this package to implement browser support to the App
-- [easy_localization](https://pub.dev/packages/easy_localization)
-    : I used this package to implement multi language support to the App.
+ - [http](https://pub.dev/packages/url_launcher)
+    : I used this package to handle network requests.
+- [carousel_slider](https://pub.dev/packages/easy_localization)
+    : I used this package to implement Carousel in the country details screen to show flag and coat of arms.
 ## Code Base 
 
-- lib
-  : This folder contains the files usef for the projects
-   
-- lib/ui : This contains screens folder 
-- lib/ui/screens : This contains each page of the App
-- lib/provider: This contains Theme data information
-- assets : This folder contains assets for the App
-- assets/images : This folder Contains image assets
-- assets/fonts : This folder contains fonts assetsf
-## Features I would have Added 
+- lib : This folder contains the files usef for the projects.
+- lib/screens : This contains each page of the App.
+- lib/components : This contains some custom widgets used in the app.
+- lib/models : This contains models used to get and parse json from network.
+- lib/provider: This contains Theme data information.
+- assets : This folder contains assets for the App.
+- assets/fonts : This folder contains fonts assets.
+## Features I would have Added if I had more time
 
-- I would had added more interactive animations if I had more time.
+- Implement dark mode toggle on button click.
+- Make project Multilingual.
+- Make the countries list filterable
+- Handle Network errors.
 
 ## Link to App
 
@@ -87,7 +86,7 @@ Run the App
 
 ## Challenges I faced
 
-- Making the App multi language : I solve this challenge by using easy localization package to implement multi language support smoothly
+- Getting correct models : I made sure i used a good Json to Dart converter which removed errors
 - Making the App Responsive : I solved this challenge by making use of 
 ```
   MediaQuery.of(context).size
