@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                   onChanged: onSearch,
                   decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Theme.of(context).primaryColor,
                       border: OutlineInputBorder(
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(4)),
@@ -86,7 +86,39 @@ class _HomePageState extends State<HomePage> {
                         )),
                         context: context,
                         builder: (BuildContext context) {
-                          return Container();
+                          return Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 24),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Languages",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                    Icon(Icons.cancel),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("Languages"),
+                                    GestureDetector(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Icon(Icons.cancel)),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
                         },
                       );
                     },
@@ -146,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                                   country.name!.common!,
                                 ),
                                 subtitle: Text(
-                                  "${country.capital![0]}",
+                                  country.capital![0],
                                 ),
                                 leading: SizedBox(
                                   height: 40,
@@ -181,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                                   country.name!.common!,
                                 ),
                                 subtitle: Text(
-                                  "${country.capital![0]}",
+                                  country.capital![0],
                                 ),
                                 leading: SizedBox(
                                   height: 40,

@@ -95,14 +95,15 @@ class CountriesModel {
         : null;
     idd = json['idd'] != null ? Idd.fromJson(json['idd']) : null;
     // capital = json['capital'].cast<String>();
-    capital =
-        json['capital'] == null ? [" --"] : List.from(json['capital'].map((x) => x));
+    capital = json['capital'] == null
+        ? [" --"]
+        : List.from(json['capital'].map((x) => x));
     // altSpellings = json['altSpellings'].cast<String>();
     altSpellings = json['altSpellings'] == null
         ? []
         : List.from(json['altSpellings'].map((x) => x));
     region = json['region'];
-    subregion = json['subregion'] == null ? "-- " : json['subregion'];
+    subregion = json['subregion'] ?? "-- ";
     languages = json['languages'] != null
         ? Languages.fromJson(json['languages'])
         : null;
@@ -117,7 +118,7 @@ class CountriesModel {
     flag = json['flag'];
     maps = json['maps'] != null ? Maps.fromJson(json['maps']) : null;
     population = json['population'];
-    fifa = json['fifa'] == null ? "--" : json['fifa'];
+    fifa = json['fifa'] ?? "--";
     car = json['car'] != null ? Car.fromJson(json['car']) : null;
     timezones = json['timezones'].cast<String>();
     continents = json['continents'].cast<String>();
