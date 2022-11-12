@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_collection_literals, unnecessary_this
+
 import 'dart:convert';
 
 List<CountriesModel> countriesModelFromJson(String str) =>
@@ -6,9 +8,6 @@ List<CountriesModel> countriesModelFromJson(String str) =>
 
 String countriesModelToJson(List<CountriesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
-
-
 
 class CountriesModel {
   Name? name;
@@ -97,13 +96,13 @@ class CountriesModel {
     idd = json['idd'] != null ? Idd.fromJson(json['idd']) : null;
     // capital = json['capital'].cast<String>();
     capital =
-        json['capital'] == null ? [] : List.from(json['capital'].map((x) => x));
+        json['capital'] == null ? [" --"] : List.from(json['capital'].map((x) => x));
     // altSpellings = json['altSpellings'].cast<String>();
     altSpellings = json['altSpellings'] == null
         ? []
         : List.from(json['altSpellings'].map((x) => x));
     region = json['region'];
-    subregion = json['subregion'];
+    subregion = json['subregion'] == null ? "-- " : json['subregion'];
     languages = json['languages'] != null
         ? Languages.fromJson(json['languages'])
         : null;
@@ -118,7 +117,7 @@ class CountriesModel {
     flag = json['flag'];
     maps = json['maps'] != null ? Maps.fromJson(json['maps']) : null;
     population = json['population'];
-    fifa = json['fifa'];
+    fifa = json['fifa'] == null ? "--" : json['fifa'];
     car = json['car'] != null ? Car.fromJson(json['car']) : null;
     timezones = json['timezones'].cast<String>();
     continents = json['continents'].cast<String>();
@@ -307,7 +306,7 @@ class Idd {
     root = json['root'];
     // suffixes = json['suffixes'].cast<String>();
     suffixes = json['suffixes'] == null
-        ? []
+        ? [" --"]
         : List.from(json['suffixes'].map((x) => x));
   }
 

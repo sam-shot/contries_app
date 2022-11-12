@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_function_literals_in_foreach_calls, curly_braces_in_flow_control_structures, prefer_final_fields
 
 import 'package:contries_app/models/countries_model.dart';
 import 'package:contries_app/screens/country_detail_page.dart';
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                                   country.name!.common!,
                                 ),
                                 subtitle: Text(
-                                  "${country.capital}",
+                                  "${country.capital![0]}",
                                 ),
                                 leading: SizedBox(
                                   height: 40,
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                                   country.name!.common!,
                                 ),
                                 subtitle: Text(
-                                  "${country.capital}",
+                                  "${country.capital![0]}",
                                 ),
                                 leading: SizedBox(
                                   height: 40,
