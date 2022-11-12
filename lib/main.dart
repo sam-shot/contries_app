@@ -9,10 +9,7 @@ import 'package:flutter/material.dart';
 import 'provider/theme_provider.dart';
 
 void main() => runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(), // Wrap your app
-      ),
+      MyApp(), // Wrap your app
     );
 
 class MyApp extends StatefulWidget {
@@ -23,8 +20,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
