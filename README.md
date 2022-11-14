@@ -42,12 +42,12 @@ An Interactive and Responsive App which displays a list of all countries and sho
 
 ## Link to App
 
-Download App [here](https://drive.google.com/file/d/1pCi3S0DDqwd3zA8FpMd-BjPLdxSB0HRr/view?usp=share_link)
+Download App [here](https://drive.google.com/file/d/13GF1ltefr2JdDGv52-k8lkRGCGQ87rJH/view?usp=drivesdk)
 
 
 ## Link to App on Appetize.io
 
-Open [here](https://appetize.io/app/nbopeyhc42las6glhb3djvgsoi)
+Open [here](https://appetize.io/app/275lpqz2fwvsunhup2crnfaexy?device=pixel4&osVersion=11.0&scale=75)
 
  
 
