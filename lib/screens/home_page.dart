@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    InternetPopup().initialize(context: context);
     getCountry();
   }
 
