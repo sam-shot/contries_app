@@ -4,7 +4,6 @@ import 'package:contries_app/models/countries_model.dart';
 
 import 'package:contries_app/screens/country_detail_page.dart';
 import 'package:flutter/material.dart';
-import 'package:internet_popup/internet_popup.dart';
 
 import '../components/filter_modal_sheet.dart';
 import '../components/language_modal_sheet.dart';

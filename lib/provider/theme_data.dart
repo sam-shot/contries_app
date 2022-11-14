@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   static final lightTheme = ThemeData(
+    fontFamily: "Axiforma",
     colorScheme: ColorScheme.light(),
     primaryColor: Colors.grey[200],
     appBarTheme: AppBarTheme(
@@ -12,6 +13,7 @@ class MyTheme {
   );
 
   static final darkTheme = ThemeData(
+    fontFamily: "Axiforma",
     primaryColor: Colors.grey[700],
     appBarTheme: AppBarTheme(
         backgroundColor: Color.fromARGB(0, 0, 0, 0),
