@@ -9,6 +9,8 @@ List<CountriesModel> countriesModelFromJson(String str) =>
 String countriesModelToJson(List<CountriesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+    
+
 class CountriesModel {
   Name? name;
   List<String>? tld;

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class LanguageModalSheet extends StatelessWidget {
@@ -9,31 +11,25 @@ class LanguageModalSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          child: Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Languages",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
-              ),
-              GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(Icons.cancel)),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Languages",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.cancel)),
+          ],
         ),
         SizedBox(
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Bahasa"),
             Radio(
@@ -48,8 +44,7 @@ class LanguageModalSheet extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Deutsch"),
             Radio(
@@ -64,8 +59,7 @@ class LanguageModalSheet extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("English"),
             Radio(
@@ -80,8 +74,7 @@ class LanguageModalSheet extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Espanol"),
             Radio(
@@ -96,8 +89,7 @@ class LanguageModalSheet extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Italiano"),
             Radio(
@@ -112,8 +104,7 @@ class LanguageModalSheet extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Francais"),
             Radio(
@@ -128,8 +119,7 @@ class LanguageModalSheet extends StatelessWidget {
           height: 15,
         ),
         Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Portugues"),
             Radio(

@@ -6,10 +6,11 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'provider/theme_provider.dart';
-
 void main() => runApp(
-      MyApp(), // Wrap your app
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => MyApp(), // Wrap your app
+      ),
     );
 
 class MyApp extends StatefulWidget {
@@ -20,17 +21,46 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isDark = false;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: MyTheme.lightTheme,
-      darkTheme: MyTheme.darkTheme,
+      theme: isDark ? MyTheme.darkTheme : MyTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      home: HomePage(),
+      home: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          centerTitle: false,
+          title: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 6),
+            child: Text(
+              "Explore",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                  fontFamily: 'Pacifico'),
+            ),
+          ),
+          actions: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isDark = !isDark;
+                    });
+                  },
+                  child: isDark ?   Icon(Icons.dark_mode_rounded) :Icon(Icons.wb_sunny_outlined)),
+            )
+          ],
+        ),
+        body: HomePage(),
+      ),
     );
   }
 }

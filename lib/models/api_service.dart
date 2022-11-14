@@ -13,6 +13,8 @@ class ApiService {
     if (response.statusCode == 200) {
       var json = response.body;
       return countriesModelFromJson(json);
+    } else {
+      throw Exception(response.reasonPhrase);
     }
   }
 }

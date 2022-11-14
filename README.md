@@ -6,7 +6,7 @@ An Interactive and Responsive App which displays a list of all countries and sho
 
 ## Features
 
-- Follows System Theme (i.e Dark/Light Theme)
+- Dark Mode Support
 - Responsive
 - Give Details of All countries
 
@@ -37,10 +37,8 @@ An Interactive and Responsive App which displays a list of all countries and sho
 - assets/fonts : This folder contains fonts assets.
 ## Features I would have Added if I had more time
 
-- Implement dark mode toggle on button click.
 - Make project Multilingual.
 - Make the countries list filterable
-- Handle Network errors.
 
 ## Link to App
 
